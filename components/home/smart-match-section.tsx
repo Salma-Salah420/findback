@@ -32,7 +32,7 @@ export function SmartMatchSection() {
           <p className="text-sm leading-relaxed text-pretty text-muted-foreground sm:text-base">
             {t("smartMatch.description")}
           </p>
-          <Button render={<Link href="/reports?sort=relevance" />} size="lg" variant="outline">
+          <Button nativeButton={false} render={<Link href="/reports?sort=relevance" />} size="lg" variant="outline">
             {t("smartMatch.review")}
             <ArrowRight data-icon="inline-end" className="rtl:rotate-180" />
           </Button>

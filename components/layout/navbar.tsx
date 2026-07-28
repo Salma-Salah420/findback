@@ -50,7 +50,7 @@ export function Navbar() {
         <div className="ms-auto flex items-center gap-2">
           <LanguageToggle className="hidden sm:inline-flex" />
           <Button
-            render={<Link href="/login" />}
+            nativeButton={false} render={<Link href="/login" />}
             variant="ghost"
             size="lg"
             className="hidden sm:inline-flex"
@@ -58,7 +58,7 @@ export function Navbar() {
             {t("nav.login")}
           </Button>
           <Button
-            render={<Link href="/reports/create" />}
+            nativeButton={false} render={<Link href="/reports/create" />}
             size="lg"
             className="hidden sm:inline-flex"
           >
@@ -95,14 +95,14 @@ export function Navbar() {
             <div className="mt-2 flex flex-col gap-2 border-t border-border pt-3">
               <LanguageToggle className="justify-start" />
               <Button
-                render={<Link href="/login" onClick={() => setOpen(false)} />}
+                nativeButton={false} render={<Link href="/login" onClick={() => setOpen(false)} />}
                 variant="outline"
                 size="lg"
               >
                 {t("nav.login")}
               </Button>
               <Button
-                render={<Link href="/reports/create" onClick={() => setOpen(false)} />}
+                nativeButton={false} render={<Link href="/reports/create" onClick={() => setOpen(false)} />}
                 size="lg"
               >
                 <Plus data-icon="inline-start" />

@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next"
 import type { Metadata, Viewport } from "next"
-import { Inter, Plus_Jakarta_Sans } from "next/font/google"
+import { Inter, Noto_Sans_Arabic, Plus_Jakarta_Sans } from "next/font/google"
 
 import { DirectionProvider } from "@/components/providers/direction-provider"
 import { Toaster } from "@/components/ui/sonner"
@@ -15,6 +15,14 @@ const inter = Inter({
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-jakarta",
+  display: "swap",
+})
+
+// Inter and Plus Jakarta Sans have no Arabic glyphs, so Arabic copy needs a
+// script-matched face in the same fallback stack.
+const notoArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
   display: "swap",
 })
 
@@ -57,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" dir="ltr" className={`bg-background ${inter.variable} ${jakarta.variable}`}>
+    <html lang="en" dir="ltr"       className={`bg-background ${inter.variable} ${jakarta.variable} ${notoArabic.variable}`}>
       <body className="font-sans antialiased">
         <DirectionProvider>{children}</DirectionProvider>
         <Toaster position="top-center" />

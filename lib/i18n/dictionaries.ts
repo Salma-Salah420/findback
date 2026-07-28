@@ -195,7 +195,7 @@ const ar: Record<TranslationKey, string> = {
 
   "stats.recovered": "عنصرًا تم استرجاعه",
   "stats.active": "تقرير نشط",
-  "stats.users": "عضو مس��ل",
+  "stats.users": "عضو مسجل",
   "stats.cities": "مدينة مشمولة",
 
   "how.eyebrow": "كيف يعمل",

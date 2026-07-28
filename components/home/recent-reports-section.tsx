@@ -29,8 +29,8 @@ export function RecentReportsSection() {
             title={t("home.recent.title")}
             description={t("home.recent.description")}
           />
-          <Button render={<Link href="/reports" />} variant="outline">
-            {t("categories.viewAll")}
+          <Button nativeButton={false} render={<Link href="/reports" />} variant="outline">
+            {t("nav.browse")}
             <ArrowRight data-icon="inline-end" className="rtl:rotate-180" />
           </Button>
         </div>

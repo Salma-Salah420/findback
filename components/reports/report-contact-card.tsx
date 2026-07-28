@@ -48,13 +48,13 @@ export function ReportContactCard({ owner }: { owner: ReportOwner }) {
         {revealed ? (
           <div className="flex flex-col gap-2">
             {owner.phone ? (
-              <Button render={<a href={`tel:${owner.phone}`} />} variant="outline" size="lg">
+              <Button nativeButton={false} render={<a href={`tel:${owner.phone}`} />} variant="outline" size="lg">
                 <Phone data-icon="inline-start" />
                 {owner.phone}
               </Button>
             ) : null}
             {owner.email ? (
-              <Button render={<a href={`mailto:${owner.email}`} />} variant="outline" size="lg">
+              <Button nativeButton={false} render={<a href={`mailto:${owner.email}`} />} variant="outline" size="lg">
                 <Mail data-icon="inline-start" />
                 {owner.email}
               </Button>

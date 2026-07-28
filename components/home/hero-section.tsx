@@ -38,11 +38,11 @@ export function HeroSection() {
         />
 
         <div className="flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
-          <Button render={<Link href="/reports/create?type=lost" />} size="lg">
+          <Button nativeButton={false} render={<Link href="/reports/create?type=lost" />} size="lg">
             <PackageSearch data-icon="inline-start" />
             {t("hero.ctaLost")}
           </Button>
-          <Button render={<Link href="/reports/create?type=found" />} size="lg" variant="outline">
+          <Button nativeButton={false} render={<Link href="/reports/create?type=found" />} size="lg" variant="outline">
             <HandHeart data-icon="inline-start" />
             {t("hero.ctaFound")}
           </Button>

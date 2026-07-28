@@ -28,6 +28,8 @@ interface FilterPanelProps {
   onChange: (patch: Partial<ReportFilters>) => void
   onReset: () => void
   className?: string
+  /** Hides the panel's own heading when an ancestor (e.g. a Dialog) provides one. */
+  hideTitle?: boolean
 }
 
 /** Base UI Select needs `items` so the trigger can render a label for a value. */
@@ -45,7 +47,11 @@ function FilterSelect({
   return (
     <Field>
       <FieldLabel>{label}</FieldLabel>
-      <Select items={options} value={value} onValueChange={onValueChange}>
+      <Select
+        items={options}
+        value={value}
+        onValueChange={(next) => onValueChange(next ?? "all")}
+      >
         <SelectTrigger className="h-9 w-full">
           <SelectValue />
         </SelectTrigger>
@@ -63,7 +69,13 @@ function FilterSelect({
   )
 }
 
-export function FilterPanel({ filters, onChange, onReset, className }: FilterPanelProps) {
+export function FilterPanel({
+  filters,
+  onChange,
+  onReset,
+  className,
+  hideTitle = false,
+}: FilterPanelProps) {
   const { t } = useTranslation()
 
   const option = (value: string, key: TranslationKey): FilterOption => ({
@@ -116,10 +128,14 @@ export function FilterPanel({ filters, onChange, onReset, className }: FilterPan
   return (
     <aside className={cn("flex flex-col gap-5", className)} aria-label={t("reports.filters")}>
       <div className="flex items-center justify-between gap-2">
-        <h2 className="flex items-center gap-2 text-sm font-semibold">
-          <SlidersHorizontal className="size-4 text-muted-foreground" aria-hidden="true" />
-          {t("reports.filters")}
-        </h2>
+        {hideTitle ? (
+          <span aria-hidden="true" />
+        ) : (
+          <h2 className="flex items-center gap-2 text-sm font-semibold">
+            <SlidersHorizontal className="size-4 text-muted-foreground" aria-hidden="true" />
+            {t("reports.filters")}
+          </h2>
+        )}
         {isDirty ? (
           <Button variant="ghost" size="sm" onClick={onReset}>
             <X data-icon="inline-start" />

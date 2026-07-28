@@ -126,8 +126,12 @@ export function ReportsBrowser() {
                 }
               />
               <DialogContent className="max-h-[85vh] overflow-y-auto">
-                <DialogTitle className="sr-only">{t("reports.filters")}</DialogTitle>
+                <DialogTitle className="flex items-center gap-2 text-base">
+                  <SlidersHorizontal className="size-4 text-muted-foreground" aria-hidden="true" />
+                  {t("reports.filters")}
+                </DialogTitle>
                 <FilterPanel
+                  hideTitle
                   filters={filters}
                   onChange={(patch) => setFilters(patch)}
                   onReset={resetFilters}
