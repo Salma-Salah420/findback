@@ -35,6 +35,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
                   active && "text-foreground",
@@ -48,29 +49,32 @@ export function Navbar() {
 
         <div className="ms-auto flex items-center gap-2">
           <LanguageToggle className="hidden sm:inline-flex" />
-          <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-            <Link href="/login">{t("nav.login")}</Link>
+          <Button
+            render={<Link href="/login" />}
+            variant="ghost"
+            size="lg"
+            className="hidden sm:inline-flex"
+          >
+            {t("nav.login")}
           </Button>
-          <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link href="/reports/create">
-              <Plus className="size-4" aria-hidden="true" />
-              {t("nav.report")}
-            </Link>
+          <Button
+            render={<Link href="/reports/create" />}
+            size="lg"
+            className="hidden sm:inline-flex"
+          >
+            <Plus data-icon="inline-start" />
+            {t("nav.report")}
           </Button>
 
           <Button
             variant="ghost"
-            size="icon"
+            size="icon-lg"
             className="md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={t("nav.menu")}
           >
-            {open ? (
-              <X className="size-5" aria-hidden="true" />
-            ) : (
-              <Menu className="size-5" aria-hidden="true" />
-            )}
+            {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </Button>
         </div>
       </div>
@@ -90,16 +94,19 @@ export function Navbar() {
             ))}
             <div className="mt-2 flex flex-col gap-2 border-t border-border pt-3">
               <LanguageToggle className="justify-start" />
-              <Button asChild variant="outline" size="sm">
-                <Link href="/login" onClick={() => setOpen(false)}>
-                  {t("nav.login")}
-                </Link>
+              <Button
+                render={<Link href="/login" onClick={() => setOpen(false)} />}
+                variant="outline"
+                size="lg"
+              >
+                {t("nav.login")}
               </Button>
-              <Button asChild size="sm">
-                <Link href="/reports/create" onClick={() => setOpen(false)}>
-                  <Plus className="size-4" aria-hidden="true" />
-                  {t("nav.report")}
-                </Link>
+              <Button
+                render={<Link href="/reports/create" onClick={() => setOpen(false)} />}
+                size="lg"
+              >
+                <Plus data-icon="inline-start" />
+                {t("nav.report")}
               </Button>
             </div>
           </nav>

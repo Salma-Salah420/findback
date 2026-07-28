@@ -7,6 +7,7 @@ import { CalendarDays, MapPin, Sparkles } from "lucide-react"
 import { ReportStatusBadge, ReportTypeBadge } from "@/components/reports/report-badges"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 import { useTranslation } from "@/hooks/use-translation"
 import type { TranslationKey } from "@/lib/i18n/dictionaries"
 import { cn } from "@/lib/utils"
@@ -87,15 +88,15 @@ export function ReportCard({ report, className, showMatchScore = false }: Report
 export function ReportCardSkeleton() {
   return (
     <Card className="overflow-hidden p-0">
-      <div className="aspect-4/3 w-full animate-pulse bg-muted" />
+      <Skeleton className="aspect-4/3 w-full rounded-none" />
       <CardContent className="flex flex-col gap-3 p-4">
-        <div className="h-4 w-24 animate-pulse rounded bg-muted" />
-        <div className="h-4 w-full animate-pulse rounded bg-muted" />
-        <div className="h-4 w-2/3 animate-pulse rounded bg-muted" />
+        <Skeleton className="h-4 w-24" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-2/3" />
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-2 border-t border-border px-4 py-3">
-        <div className="h-3 w-20 animate-pulse rounded bg-muted" />
-        <div className="h-3 w-32 animate-pulse rounded bg-muted" />
+        <Skeleton className="h-3 w-20" />
+        <Skeleton className="h-3 w-32" />
       </CardFooter>
     </Card>
   )

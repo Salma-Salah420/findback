@@ -20,8 +20,8 @@ export function LanguageToggle({ className }: { className?: string }) {
       className={className}
       aria-label={`${t("common.language")}: ${localeLabels[nextLocale]}`}
     >
-      <Languages className="size-4" aria-hidden="true" />
-      <span className="text-xs font-medium">{localeLabels[nextLocale]}</span>
+      <Languages data-icon="inline-start" aria-hidden="true" />
+      {localeLabels[nextLocale]}
     </Button>
   )
 }

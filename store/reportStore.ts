@@ -21,6 +21,8 @@ interface ReportState {
   isLoading: boolean
   error: string | null
   setFilter: <K extends keyof ReportFilters>(key: K, value: ReportFilters[K]) => void
+  /** Merges a partial filter patch, then refetches. */
+  setFilters: (patch: Partial<ReportFilters>) => void
   resetFilters: () => void
   fetchReports: () => Promise<void>
 }
@@ -34,6 +36,11 @@ export const useReportStore = create<ReportState>((set, get) => ({
 
   setFilter: (key, value) => {
     set({ filters: { ...get().filters, [key]: value } })
+    void get().fetchReports()
+  },
+
+  setFilters: (patch) => {
+    set({ filters: { ...get().filters, ...patch } })
     void get().fetchReports()
   },
 

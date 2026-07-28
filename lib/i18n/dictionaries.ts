@@ -57,6 +57,11 @@ const en = {
   "how.step3.body":
     "Message the other party through FindBack and arrange a safe handover in a public place.",
 
+  "home.recent.eyebrow": "Latest listings",
+  "home.recent.title": "Recently reported near you",
+  "home.recent.description":
+    "The newest lost and found reports posted by the community in the last few days.",
+
   "categories.eyebrow": "Categories",
   "categories.title": "What are you looking for?",
   "categories.description": "Jump straight into the listings that matter to you.",
@@ -190,7 +195,7 @@ const ar: Record<TranslationKey, string> = {
 
   "stats.recovered": "عنصرًا تم استرجاعه",
   "stats.active": "تقرير نشط",
-  "stats.users": "عضو مسجل",
+  "stats.users": "عضو مس��ل",
   "stats.cities": "مدينة مشمولة",
 
   "how.eyebrow": "كيف يعمل",
@@ -205,6 +210,11 @@ const ar: Record<TranslationKey, string> = {
   "how.step3.title": "استعد عنصرك",
   "how.step3.body":
     "تواصل مع الطرف الآخر عبر فايند باك ورتب التسليم في مكان عام آمن.",
+
+  "home.recent.eyebrow": "أحدث الإعلانات",
+  "home.recent.title": "أُبلغ عنها حديثًا قريبًا منك",
+  "home.recent.description":
+    "أحدث تقارير المفقودات والموجودات التي نشرها المجتمع في الأيام الماضية.",
 
   "categories.eyebrow": "الفئات",
   "categories.title": "عمّا تبحث؟",
